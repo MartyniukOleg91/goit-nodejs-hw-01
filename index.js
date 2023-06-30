@@ -5,7 +5,7 @@ const invokeAction = async ({ action, id, data }) => {
   switch (action) {
     case "getAll":
       const products = await productOperations.getAll();
-      console.log(products);
+      console.table(products);
       break;
     case "getById":
       const product = await productOperations.getById(id);
@@ -22,7 +22,7 @@ const invokeAction = async ({ action, id, data }) => {
       if (!updateProduct) {
         throw new Error(`Product with id ${id} not found`);
       }
-      console.log(updateProduct);
+      console.table(updateProduct);
       break;
     default:
       console.log("Uncnow action");

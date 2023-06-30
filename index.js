@@ -1,23 +1,25 @@
-const ol = require("./contacts");
+const productOperations = require("./contact.js");
 const fs = require("fs/promises");
 
-const fileOperation = async (filePath, action = "read", data = "") => {
+const invokeAction = async ({ action, id, data }) => {
   switch (action) {
-    case "read":
-      const text = await fs.readFile(filePath, "utf-8");
-      console.log(text);
+    case "getAll":
+      const products = await productOperations.getAll();
+
       break;
-    case "add":
-      const result = await fs.appendFile(filePath, data);
-      console.log(result);
+    case "getById":
+      const product = await productOperations.getById(id);
+      if (!product) {
+        throw new Error(`Product with id ${id} not found`);
+      }
+      console.log(product);
       break;
+    default:
+      console.log("Uncnow action");
   }
 };
 
-fileOperation("./db/contacts.json");
-fileOperation("./db/contacts.json", "add", "{nkjhgkjghjg}");
-// fs.readFile("./db/contacts.json", "UTF-8")
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((error) => console.log(error.message));
+invokeAction({ action: "getAll" });
+
+const id = "AeHIrLTr6JkxGE6SN-0Rw";
+invokeAction({ action: "getById", id });

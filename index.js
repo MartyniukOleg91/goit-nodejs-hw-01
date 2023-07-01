@@ -5,7 +5,7 @@ const invokeAction = async ({ action, id, data }) => {
   switch (action) {
     case "getAll":
       const products = await productOperations.getAll();
-      console.table(products);
+      console.log(products);
       break;
     case "getById":
       const product = await productOperations.getById(id);
@@ -24,28 +24,44 @@ const invokeAction = async ({ action, id, data }) => {
       }
       console.table(updateProduct);
       break;
+
+    case "removeById":
+      const removeProduct = await productOperations.removeById(id);
+
     default:
       console.log("Uncnow action");
   }
 };
+
+// ========================== GET ALL ===========================
 
 // invokeAction({ action: "getAll" });
 
 // const id = "AeHIrLTr6JkxGE6SN-0Rw";
 // invokeAction({ action: "getById", id });
 
+// ========================== NEW DATA ===========================
+
 // const newData = {
 //   id: "1",
 //   name: "Martyniuk Oleh ",
 //   email: "nulla.ante@vestibul.co.uk",
-//   phone: "(097) 144-4167",
+//   phone: "(097) ",
 // };
 // invokeAction({ action: "add", data: newData });
 
-const updateId = "76fe8d68-5916-4e6a-8add-76dc9b44e5b2";
-const updateData = {
-  name: "Martyn",
-  email: "nulla",
-  phone: "(099) 156-4320",
-};
-invokeAction({ action: "updateById", id: updateId, data: updateData });
+// ========================== UPDATE ===========================
+
+// const updateId = "76fe8d68-5916-4e6a-8add-76dc9b44e5b2";
+// const updateData = {
+//   name: "Martyniuk Oleh",
+//   email: "nulla",
+//   phone: "(099) 156-4320",
+// };
+// invokeAction({ action: "updateById", id: updateId, data: updateData });
+
+// ========================== DELETE ===========================
+
+// const deleteId = "2";
+
+// invokeAction({ action: "removeById", id: deleteId });

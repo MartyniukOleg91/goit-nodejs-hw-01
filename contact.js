@@ -39,4 +39,12 @@ const updateById = async (id, data) => {
   return products[idx];
 };
 
-module.exports = { getAll, getById, add, updateById };
+const removeById = async (id) => {
+  const products = await getAll();
+  const index = products.findIndex((item) => item.id === id);
+  const [removeProduct] = products.splice(index, 1);
+  await fs.writeFile(contactsPath, JSON.stringify(products));
+  return removeProduct;
+};
+
+module.exports = { getAll, getById, add, updateById, removeById };

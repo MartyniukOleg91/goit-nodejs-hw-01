@@ -12,8 +12,9 @@ const getAll = async () => {
 };
 
 const getById = async (id) => {
+  const itemId = String(id);
   const products = await getAll();
-  const result = products.find((item) => item.id === id);
+  const result = products.find((item) => item.id === itemId);
   if (!result) {
     return null;
   }

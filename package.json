@@ -4,7 +4,8 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "nanoid": "^4.0.2",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "yargs": "^17.7.2"
   },
   "name": "goit-nodejs-hw-01",
   "description": "goit-nodejs-hw-01",

@@ -1,5 +1,8 @@
+const { log } = require("console");
 const productOperations = require("./contact.js");
 const fs = require("fs/promises");
+const yargs = require("yargs");
+const { hideBin } = require("yargs/helpers");
 
 const invokeAction = async ({ action, id, data }) => {
   switch (action) {
@@ -9,6 +12,7 @@ const invokeAction = async ({ action, id, data }) => {
       break;
     case "getById":
       const product = await productOperations.getById(id);
+
       if (!product) {
         throw new Error(`Product with id ${id} not found`);
       }
@@ -32,6 +36,10 @@ const invokeAction = async ({ action, id, data }) => {
       console.log("Uncnow action");
   }
 };
+
+const arr = hideBin(process.argv);
+const { argv } = yargs(arr);
+invokeAction(argv);
 
 // ========================== GET ALL ===========================
 

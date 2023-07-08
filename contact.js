@@ -12,9 +12,12 @@ const getAll = async () => {
 };
 
 const getById = async (id) => {
-  const itemId = String(id);
   const products = await getAll();
-  const result = products.find((item) => item.id === itemId);
+
+  const result = products.find((item) => {
+    return item.id == id;
+  });
+
   if (!result) {
     return null;
   }

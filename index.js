@@ -37,21 +37,21 @@ const invokeAction = async ({ action, id, data }) => {
   }
 };
 
-const arr = hideBin(process.argv);
-const { argv } = yargs(arr);
-invokeAction(argv);
+// const arr = hideBin(process.argv);
+// const { argv } = yargs(arr);
+// console.log(argv);
 
 // ========================== GET ALL ===========================
 
 // invokeAction({ action: "getAll" });
 
-// const id = "AeHIrLTr6JkxGE6SN-0Rw";
-// invokeAction({ action: "getById", id });
+const id = "10";
+invokeAction({ action: "getById", id });
 
 // ========================== NEW DATA ===========================
 
 // const newData = {
-//   id: "1",
+//   id: "141",
 //   name: "Martyniuk Oleh ",
 //   email: "nulla.ante@vestibul.co.uk",
 //   phone: "(097) ",
@@ -70,6 +70,6 @@ invokeAction(argv);
 
 // ========================== DELETE ===========================
 
-// const deleteId = "2";
+// const deleteId = "8";
 
 // invokeAction({ action: "removeById", id: deleteId });

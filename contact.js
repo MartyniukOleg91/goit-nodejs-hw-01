@@ -13,9 +13,9 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const products = await getAll();
-
+  console.log(id);
   const result = products.find((item) => {
-    return item.id == id;
+    return item.id === id;
   });
 
   if (!result) {

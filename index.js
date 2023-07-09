@@ -45,7 +45,7 @@ const invokeAction = async ({ action, id, data }) => {
 
 // invokeAction({ action: "getAll" });
 
-const id = "10";
+const id = "7";
 invokeAction({ action: "getById", id });
 
 // ========================== NEW DATA ===========================
